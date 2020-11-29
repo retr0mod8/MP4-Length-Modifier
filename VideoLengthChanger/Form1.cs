@@ -25,7 +25,7 @@ namespace VideoLengthChanger
 
         private void Start_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hi! :)");
+            MessageBox.Show(PublicVariables.test);
         }
 
         public void Browse(object sender, EventArgs e)
@@ -37,8 +37,8 @@ namespace VideoLengthChanger
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
+                PublicVariables.test = choofdlog.FileName;
                 LocationText.Text = choofdlog.SafeFileName;
-                PublicVariables.ChangeFile(choofdlog.FileName);
             }
         }
    

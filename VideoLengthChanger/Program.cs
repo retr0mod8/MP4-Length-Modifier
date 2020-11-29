@@ -20,14 +20,19 @@ namespace VideoLengthChanger
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
         }
     }
     public class PublicVariables
     {
-        static string fileLocation;
-        public static void ChangeFile(string a)
+       public static string test;
+    }
+
+    public class PublicFunctions
+    {
+        public struct FrontendInputs
         {
-            fileLocation = a;
         }
+
     }
 }
