@@ -24,25 +24,56 @@ namespace VideoLengthChanger
 
 
         private void Start_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(PublicVariables.test);
+        {   
+            if (PublicFunctions.FrontendFunctions.CheckAndCalculateInput(NewCustom.Text))
+            {
+                PublicFunctions.FrontendFunctions.EditData();
+                
+            }
+            else
+            {
+                MessageBox.Show("Please only input numbers!");
+            }
         }
 
         public void Browse(object sender, EventArgs e)
         {
             OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.Filter = ".mp4 Files (*.mp4*)|*.mp4*";
             choofdlog.FilterIndex = 1;
             choofdlog.Multiselect = false;
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
-                PublicVariables.test = choofdlog.FileName;
+                PublicVariables.filelocation = choofdlog.FileName;
                 LocationText.Text = choofdlog.SafeFileName;
+                PublicFunctions.FrontendFunctions.getVideoLength();
+                IncPerSecond.Text = PublicVariables.seconds.ToString();
+                Start.Enabled = true;
             }
         }
-   
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class VisualFunctions {
+        static void ChangeVideoLengthTextBox()
+        {
+
+        }
     }
 
 }

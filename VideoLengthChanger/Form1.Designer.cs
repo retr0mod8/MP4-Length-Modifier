@@ -31,15 +31,18 @@
             this.Start = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.IncPerSecond = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.LocationText = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.NewCustom = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(35, 204);
+            this.Start.Enabled = false;
+            this.Start.Location = new System.Drawing.Point(35, 152);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 0;
@@ -66,24 +69,22 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "By retr0mod8";
             // 
-            // textBox1
+            // IncPerSecond
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(141, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.IncPerSecond.Location = new System.Drawing.Point(173, 86);
+            this.IncPerSecond.Name = "IncPerSecond";
+            this.IncPerSecond.ReadOnly = true;
+            this.IncPerSecond.Size = new System.Drawing.Size(100, 20);
+            this.IncPerSecond.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Enabled = false;
-            this.label3.Location = new System.Drawing.Point(37, 95);
+            this.label3.Location = new System.Drawing.Point(32, 89);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.Size = new System.Drawing.Size(135, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Video Length:";
+            this.label3.Text = "Video Length (in Seconds):";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button2
@@ -104,16 +105,35 @@
             this.LocationText.Size = new System.Drawing.Size(303, 20);
             this.LocationText.TabIndex = 6;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "New Custom Length (in Seconds):";
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
+            // 
+            // NewCustom
+            // 
+            this.NewCustom.Location = new System.Drawing.Point(206, 109);
+            this.NewCustom.Name = "NewCustom";
+            this.NewCustom.Size = new System.Drawing.Size(100, 20);
+            this.NewCustom.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AcceptButton = this.Start;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 239);
+            this.ClientSize = new System.Drawing.Size(483, 187);
+            this.Controls.Add(this.NewCustom);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.LocationText);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.IncPerSecond);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Start);
@@ -129,10 +149,12 @@
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox IncPerSecond;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox LocationText;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox NewCustom;
     }
 }
 
