@@ -19,4 +19,6 @@ namespace VideoLengthChanger
             Application.Run(new Form1());
         }
     }
+
+
 }

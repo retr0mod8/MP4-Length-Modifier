@@ -1,0 +1,9 @@
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\bin\x86\Debug\VideoLengthChanger.exe.config
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\bin\x86\Debug\VideoLengthChanger.exe
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\bin\x86\Debug\VideoLengthChanger.pdb
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.Form1.resources
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.Properties.Resources.resources
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.csproj.GenerateResource.cache
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.csproj.CoreCompileInputs.cache
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.exe
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.pdb
