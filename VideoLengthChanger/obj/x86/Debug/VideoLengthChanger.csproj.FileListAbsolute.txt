@@ -7,3 +7,4 @@ C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Deb
 C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.csproj.CoreCompileInputs.cache
 C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.exe
 C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.pdb
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Debug\VideoLengthChanger.csprojAssemblyReference.cache

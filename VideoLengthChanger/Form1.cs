@@ -22,19 +22,27 @@ namespace VideoLengthChanger
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Start_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hi! :)");
         }
+
+        public void Browse(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = false;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                LocationText.Text = choofdlog.SafeFileName;
+                PublicVariables.ChangeFile(choofdlog.FileName);
+            }
+        }
+   
+
     }
+
 }
