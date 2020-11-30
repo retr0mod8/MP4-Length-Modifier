@@ -59,7 +59,7 @@ namespace VideoLengthChanger
                     }
                     catch (Exception)
                     {
-                        //  Block of code to handle errors
+                        Console.WriteLine("1 divided by 0?! NOT POSSIBLE *explosion*");
                     }
                 }
             }

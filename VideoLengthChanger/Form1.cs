@@ -47,6 +47,7 @@ namespace VideoLengthChanger
             {
                 PublicVariables.filelocation = choofdlog.FileName;
                 LocationText.Text = choofdlog.SafeFileName;
+                PublicVariables.seconds = 0;
                 PublicFunctions.FrontendFunctions.getVideoLength();
                 if (PublicVariables.seconds == 0){
                     IncPerSecond.Text = PublicVariables.seconds.ToString();
