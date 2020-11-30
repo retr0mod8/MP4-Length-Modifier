@@ -28,31 +28,73 @@ namespace VideoLengthChanger
     public class PublicVariables //Variables to be used across the program
     {
         public static string filelocation; //string on the selected file's location and file name e.g 'C:\Folder\video.mp4'
-        public static Int32 increment; //Represents the chosen video's increment value (aka the value of the 4 bytes starting at 0x34)
-        public static Int32 limit; //Ditto but for the increment limit (hex offset 0x38)
+        public static uint increment; //Represents the chosen video's increment value (aka the value of the 4 bytes starting at 0x34)
+        public static uint limit; //Ditto but for the increment limit (hex offset 0x38)
         public static Int32 seconds = -1; //Limit divided by the Incrememnt. Set to -1 for error checking.
-        public static Int32 InputTime; //The time in seconds the user wants the video length to be.
+        public static uint InputTime; //The time in seconds the user wants the video length to be.
+        public static int b1; //byte 1, value is written to hex offset 0x34 when EditData() function is run
+        public static int b2; //ditto
+        public static int b3; //dito
+        public static int b4; //dito
+        public static bool EditDataFinished = false;
+        public static int StreamPosition;
     }
 
     public class PublicFunctions
     {
         public struct FrontendFunctions
         {
+
+            public static void getHeaderOffset(){
+                using (var stream = new System.IO.FileStream(PublicVariables.filelocation, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+                {
+                    bool loop = true;
+                    stream.Position = 0;
+                    while (loop){
+                        if (stream.ReadByte() == 109){
+                            if (stream.ReadByte() == 118){
+                                if (stream.ReadByte() == 104){
+                                    if (stream.ReadByte() == 100){
+                                        loop = false;
+                                        PublicVariables.StreamPosition = (Convert.ToInt32(stream.Position)+11);
+                                    }    
+                                }
+                            }    
+                        }
+                    }
+                }
+            }
+            /*
             public static void getVideoLength()
             {
                 using (var stream = new System.IO.FileStream(PublicVariables.filelocation, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
                 {
                     PublicVariables.increment = 0;
                     PublicVariables.limit = 0;
-                    stream.Position = 52; //this is where the video length header data is.
+                    stream.Position = PublicVariables.StreamPosition; //this is where the video length header data is.
                     for (int i = 0; i != 4; i++)// read the increment 32bit byte
                     {
                         PublicVariables.increment += stream.ReadByte();
+                        stream.Position--;
+                        Console.WriteLine(stream.ReadByte());
                     }
-                    for (int i = 0; i != 4; i++)// read the increment limit 32bit byte
-                    {
-                        PublicVariables.limit += stream.ReadByte();
-                    }
+
+                    PublicVariables.b1 = 0;
+                    PublicVariables.b2 = 0;
+                    PublicVariables.b3 = 0;
+                    PublicVariables.b4 = 0;
+                    PublicVariables.b1 = stream.ReadByte();
+                    PublicVariables.b2 = stream.ReadByte();
+                    PublicVariables.b3 = stream.ReadByte();
+                    PublicVariables.b4 = stream.ReadByte();
+                    PublicVariables.b1 *= 8;
+                    PublicVariables.b2 *= 4;
+                    PublicVariables.b3 *= 2;
+                    PublicVariables.b4 *= 1;
+                    PublicVariables.limit = (PublicVariables.b1 + PublicVariables.b2 + PublicVariables.b3 + PublicVariables.b4);
+                    Console.WriteLine(PublicVariables.increment);
+                    Console.WriteLine(PublicVariables.limit);
+
                     try
                     {
                         PublicVariables.seconds = (PublicVariables.limit / PublicVariables.increment);
@@ -63,6 +105,7 @@ namespace VideoLengthChanger
                     }
                 }
             }
+            */
 
             public static bool CheckAndCalculateInput(string str)
             {
@@ -75,9 +118,18 @@ namespace VideoLengthChanger
                 {
                     return false; //input contains nothing. bad! >:(
                 }
-                Int32 x = Int32.Parse(str); //convert input string to local int
-                PublicVariables.InputTime = x; // convert local int to hex
-                return true; //input contains numbers. good :)
+
+                try
+                {
+                    PublicVariables.InputTime = Convert.ToUInt32(str);
+                    return true; //input contains numbers. good :)
+                }
+                catch (Exception)
+                {
+                    PublicVariables.InputTime = 4294967295;
+                    return true; //input contains numbers. good :)
+                }
+
             }
 
             public static void EditData()
@@ -86,7 +138,8 @@ namespace VideoLengthChanger
                 {
                     PublicVariables.increment = 0;
                     PublicVariables.limit = 0;
-                    stream.Position = 52; //this is where the video length header data is.
+
+                    stream.Position = PublicVariables.StreamPosition; //this is where the video length header data is.
                     for (int i = 0; i != 3; i++)// read the increment 32bit byte
                     {
                         stream.WriteByte(0);
@@ -94,8 +147,43 @@ namespace VideoLengthChanger
                     stream.WriteByte(1);
                     //Video increment written
 
+                    PublicVariables.b1 = 0;
+                    PublicVariables.b2 = 0;
+                    PublicVariables.b3 = 0;
+                    PublicVariables.b4 = 0;
 
                     //Insert Limit Writing Code Here
+                    for (uint i = PublicVariables.InputTime; i != 0; i--){
+                        PublicVariables.b4 ++;
+                        
+                        if (PublicVariables.b4 == 256){ //if byte 4 is over 255, make it go back to 255 and carry over the remainder to byte 3
+                            PublicVariables.b4 = 0;
+                            PublicVariables.b3 ++;
+                        }
+
+                        if (PublicVariables.b3 == 256){ //ditto
+                            PublicVariables.b3 = 0;
+                            PublicVariables.b2 ++;
+                        }
+
+                        if (PublicVariables.b2 == 256){ //ditto
+                            PublicVariables.b2 = 0;
+                            PublicVariables.b1 ++;
+                        }
+
+                        if (PublicVariables.b1 == 256){
+                            PublicVariables.b1 --;
+                        }
+                    }
+                    Console.WriteLine(PublicVariables.b1);
+                    Console.WriteLine(PublicVariables.b2);
+                    Console.WriteLine(PublicVariables.b3);
+                    Console.WriteLine(PublicVariables.b4);
+                    stream.WriteByte(Convert.ToByte(PublicVariables.b1));
+                    stream.WriteByte(Convert.ToByte(PublicVariables.b2));
+                    stream.WriteByte(Convert.ToByte(PublicVariables.b3));
+                    stream.WriteByte(Convert.ToByte(PublicVariables.b4));
+                    PublicVariables.EditDataFinished = true;
 
                 }
             }

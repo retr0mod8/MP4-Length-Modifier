@@ -27,12 +27,24 @@ namespace VideoLengthChanger
         {   
             if (PublicFunctions.FrontendFunctions.CheckAndCalculateInput(NewCustom.Text))
             {
+                Start.Enabled = false; //Debounce
+                NewCustom.ReadOnly = true; //Ditto
+                bool WhileLoop = true;
+
                 PublicFunctions.FrontendFunctions.EditData();
+                while (WhileLoop){ //constantly check if the edit data job is done.
+                    if (PublicVariables.EditDataFinished == true){
+                        WhileLoop = false;
+                        Start.Enabled = true;
+                        NewCustom.ReadOnly = false;
+                    }
+
+                }
                 
             }
             else
             {
-                MessageBox.Show("Please only input numbers!");
+                MessageBox.Show("Invalid Number!");
             }
         }
 
@@ -48,15 +60,17 @@ namespace VideoLengthChanger
                 PublicVariables.filelocation = choofdlog.FileName;
                 LocationText.Text = choofdlog.SafeFileName;
                 PublicVariables.seconds = 0;
-                PublicFunctions.FrontendFunctions.getVideoLength();
-                if (PublicVariables.seconds == 0){
+                PublicVariables.EditDataFinished = false;
+                PublicFunctions.FrontendFunctions.getHeaderOffset();
+                /*PublicFunctions.FrontendFunctions.getVideoLength();
+                if (PublicVariables.seconds >= 0){
                     IncPerSecond.Text = PublicVariables.seconds.ToString();
                 }
                 else
                 {
                     IncPerSecond.Text = "N/A";
                 }
-
+                */
                 Start.Enabled = true;
             }
         }
@@ -72,6 +86,21 @@ namespace VideoLengthChanger
         }
 
         private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewCustom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LocationText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IncPerSecond_TextChanged(object sender, EventArgs e)
         {
 
         }

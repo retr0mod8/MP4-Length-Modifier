@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Start = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.IncPerSecond = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.LocationText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +41,7 @@
             // Start
             // 
             this.Start.Enabled = false;
-            this.Start.Location = new System.Drawing.Point(35, 152);
+            this.Start.Location = new System.Drawing.Point(35, 109);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 0;
@@ -69,24 +68,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "By retr0mod8";
             // 
-            // IncPerSecond
-            // 
-            this.IncPerSecond.Location = new System.Drawing.Point(173, 86);
-            this.IncPerSecond.Name = "IncPerSecond";
-            this.IncPerSecond.ReadOnly = true;
-            this.IncPerSecond.Size = new System.Drawing.Size(100, 20);
-            this.IncPerSecond.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Video Length (in Seconds):";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(35, 53);
@@ -104,11 +85,12 @@
             this.LocationText.ReadOnly = true;
             this.LocationText.Size = new System.Drawing.Size(303, 20);
             this.LocationText.TabIndex = 6;
+            this.LocationText.TextChanged += new System.EventHandler(this.LocationText_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 112);
+            this.label4.Location = new System.Drawing.Point(32, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 13);
             this.label4.TabIndex = 7;
@@ -117,26 +99,26 @@
             // 
             // NewCustom
             // 
-            this.NewCustom.Location = new System.Drawing.Point(206, 109);
+            this.NewCustom.Location = new System.Drawing.Point(197, 83);
             this.NewCustom.Name = "NewCustom";
             this.NewCustom.Size = new System.Drawing.Size(100, 20);
             this.NewCustom.TabIndex = 8;
+            this.NewCustom.TextChanged += new System.EventHandler(this.NewCustom_TextChanged);
             // 
             // Form1
             // 
             this.AcceptButton = this.Start;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 187);
+            this.ClientSize = new System.Drawing.Size(483, 144);
             this.Controls.Add(this.NewCustom);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.LocationText);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.IncPerSecond);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Start);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Video Length Changer";
             this.ResumeLayout(false);
@@ -149,8 +131,6 @@
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox IncPerSecond;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox LocationText;
         private System.Windows.Forms.Label label4;
