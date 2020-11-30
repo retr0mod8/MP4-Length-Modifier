@@ -18,3 +18,13 @@ D:\VideoLengthChanger\VideoLengthChanger\bin\x86\Release\Video Length Changer.ex
 D:\VideoLengthChanger\VideoLengthChanger\bin\x86\Release\Video Length Changer.pdb
 D:\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\Video Length Changer.exe
 D:\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\Video Length Changer.pdb
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\bin\x86\Release\Video Length Changer.exe.config
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\bin\x86\Release\Video Length Changer.exe
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\bin\x86\Release\Video Length Changer.pdb
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\VideoLengthChanger.csprojAssemblyReference.cache
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\VideoLengthChanger.Form1.resources
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\VideoLengthChanger.Properties.Resources.resources
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\VideoLengthChanger.csproj.GenerateResource.cache
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\VideoLengthChanger.csproj.CoreCompileInputs.cache
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\Video Length Changer.exe
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\Video Length Changer.pdb

@@ -24,11 +24,17 @@ namespace VideoLengthChanger
 
 
         private void Start_Click(object sender, EventArgs e)
-        {   
-            if (PublicFunctions.FrontendFunctions.CheckAndCalculateInput(NewCustom.Text))
+        {
+
+            uint Length = 0;
+            Length += (Convert.ToUInt32(Hours.Text)) * 3600;
+            Length += (Convert.ToUInt32(Minutes.Text)) * 60;
+            Length += Convert.ToUInt32(Seconds.Text);
+
+            if (PublicFunctions.FrontendFunctions.CheckAndCalculateInput(Convert.ToString(Length)))
             {
                 Start.Enabled = false; //Debounce
-                NewCustom.ReadOnly = true; //Ditto
+                Hours.ReadOnly = true; //Ditto
                 bool WhileLoop = true;
 
                 PublicFunctions.FrontendFunctions.EditData();
@@ -36,7 +42,7 @@ namespace VideoLengthChanger
                     if (PublicVariables.EditDataFinished == true){
                         WhileLoop = false;
                         Start.Enabled = true;
-                        NewCustom.ReadOnly = false;
+                        Hours.ReadOnly = false;
                     }
 
                 }
@@ -103,6 +109,28 @@ namespace VideoLengthChanger
         private void IncPerSecond_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+        private void VisitLink()
+        {
+            // Change the color of the link text by setting LinkVisited
+            // to true.
+            linkLabel1.LinkVisited = true;
+            //Call the Process.Start method to open the default browser
+            //with a URL:
+            System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCzK5RJAGlfXoRfK4Hfgx9jw");
         }
     }
 
