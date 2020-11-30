@@ -133,6 +133,11 @@ namespace VideoLengthChanger
             //with a URL:
             System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCzK5RJAGlfXoRfK4Hfgx9jw");
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class VisualFunctions {

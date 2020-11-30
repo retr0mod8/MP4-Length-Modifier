@@ -144,6 +144,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Video Length Changer";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Hours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seconds)).EndInit();
