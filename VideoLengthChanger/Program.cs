@@ -25,13 +25,13 @@ namespace VideoLengthChanger
 
         }
     }
-    public class PublicVariables
+    public class PublicVariables //Variables to be used across the program
     {
-        public static string filelocation;
-        public static Int32 increment;
-        public static Int32 limit;
-        public static Int32 seconds;
-        public static Int32 InputTime;
+        public static string filelocation; //string on the selected file's location and file name e.g 'C:\Folder\video.mp4'
+        public static Int32 increment; //Represents the chosen video's increment value (aka the value of the 4 bytes starting at 0x34)
+        public static Int32 limit; //Ditto but for the increment limit (hex offset 0x38)
+        public static Int32 seconds = -1; //Limit divided by the Incrememnt. Set to -1 for error checking.
+        public static Int32 InputTime; //The time in seconds the user wants the video length to be.
     }
 
     public class PublicFunctions
@@ -53,7 +53,14 @@ namespace VideoLengthChanger
                     {
                         PublicVariables.limit += stream.ReadByte();
                     }
-                    PublicVariables.seconds = (PublicVariables.limit / PublicVariables.increment);
+                    try
+                    {
+                        PublicVariables.seconds = (PublicVariables.limit / PublicVariables.increment);
+                    }
+                    catch (Exception)
+                    {
+                        //  Block of code to handle errors
+                    }
                 }
             }
 
