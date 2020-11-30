@@ -55,7 +55,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>New Piskel.ico</ApplicationIcon>
+    <ApplicationIcon>Untitled-2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>VideoLengthChanger.Program</StartupObject>
@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="New Piskel.ico" />
+    <Content Include="Untitled-2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

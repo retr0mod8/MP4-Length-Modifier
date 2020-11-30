@@ -40,6 +40,7 @@ namespace VideoLengthChanger
                 PublicFunctions.FrontendFunctions.EditData();
                 while (WhileLoop){ //constantly check if the edit data job is done.
                     if (PublicVariables.EditDataFinished == true){
+                        DialogResult dialogResult = MessageBox.Show("Video length has successfully been changed!");
                         WhileLoop = false;
                         Start.Enabled = true;
                         Hours.ReadOnly = false;
