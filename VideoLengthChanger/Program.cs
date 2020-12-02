@@ -28,9 +28,6 @@ namespace VideoLengthChanger
     public class PublicVariables //Variables to be used across the program
     {
         public static string filelocation; //string on the selected file's location and file name e.g 'C:\Folder\video.mp4'
-        public static uint increment; //Represents the chosen video's increment value (aka the value of the 4 bytes starting at 0x34)
-        public static uint limit; //Ditto but for the increment limit (hex offset 0x38)
-        public static Int32 seconds = -1; //Limit divided by the Incrememnt. Set to -1 for error checking.
         public static uint InputTime; //The time in seconds the user wants the video length to be.
         public static int b1; //byte 1, value is written to hex offset 0x34 when EditData() function is run
         public static int b2; //ditto
@@ -107,38 +104,43 @@ namespace VideoLengthChanger
             }
             */
 
-            public static bool CheckAndCalculateInput(string str)
+            public static bool CheckAndCalculateInput(string str1, string str2, string str3)
             {
-                foreach (char c in str)
+                foreach (char c in str1)
                 {
                     if (c < '0' || c > '9')
                         return false; //input contains things over than numbers. bad! >:(
                 }
-                if (string.IsNullOrEmpty(str))
+                if (string.IsNullOrEmpty(str1))
+                {
+                    return false; //input contains nothing. bad! >:(
+                }
+                foreach (char c in str2)
+                {
+                    if (c < '0' || c > '9')
+                        return false; //input contains things over than numbers. bad! >:(
+                }
+                if (string.IsNullOrEmpty(str2))
+                {
+                    return false; //input contains nothing. bad! >:(
+                }
+                foreach (char c in str3)
+                {
+                    if (c < '0' || c > '9')
+                        return false; //input contains things over than numbers. bad! >:(
+                }
+                if (string.IsNullOrEmpty(str3))
                 {
                     return false; //input contains nothing. bad! >:(
                 }
 
-                try
-                {
-                    PublicVariables.InputTime = Convert.ToUInt32(str);
-                    return true; //input contains numbers. good :)
-                }
-                catch (Exception)
-                {
-                    PublicVariables.InputTime = 4294967295;
-                    return true; //input contains numbers. good :)
-                }
-
+                return true;
             }
 
             public static void EditData()
             {
                 using (var stream = new System.IO.FileStream(PublicVariables.filelocation, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
                 {
-                    PublicVariables.increment = 0;
-                    PublicVariables.limit = 0;
-
                     stream.Position = PublicVariables.StreamPosition; //this is where the video length header data is.
                     for (int i = 0; i != 3; i++)// read the increment 32bit byte
                     {
@@ -179,6 +181,7 @@ namespace VideoLengthChanger
                     Console.WriteLine(PublicVariables.b2);
                     Console.WriteLine(PublicVariables.b3);
                     Console.WriteLine(PublicVariables.b4);
+                    Console.WriteLine(PublicVariables.InputTime);
                     stream.WriteByte(Convert.ToByte(PublicVariables.b1));
                     stream.WriteByte(Convert.ToByte(PublicVariables.b2));
                     stream.WriteByte(Convert.ToByte(PublicVariables.b3));

@@ -28,3 +28,6 @@ C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Rel
 C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\VideoLengthChanger.csproj.CoreCompileInputs.cache
 C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\Video Length Changer.exe
 C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\obj\x86\Release\Video Length Changer.pdb
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\Release\Video Length Changer.exe.config
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\Release\Video Length Changer.exe
+C:\Users\Main\Documents\GitHub\VideoLengthChanger\VideoLengthChanger\Release\Video Length Changer.pdb
