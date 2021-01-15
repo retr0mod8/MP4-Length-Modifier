@@ -20,3 +20,4 @@ C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4 Length Mo
 C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.exe.config
 C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.exe
 C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.pdb
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4_Length_Modifier.LicenseForm.resources

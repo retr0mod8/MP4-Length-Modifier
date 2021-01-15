@@ -43,6 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
+            this.LicenseBox = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.Hour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seconds)).BeginInit();
@@ -129,7 +130,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.InfoBox});
+            this.InfoBox,
+            this.LicenseBox});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(418, 25);
@@ -193,6 +195,16 @@
             this.Output.Size = new System.Drawing.Size(391, 20);
             this.Output.TabIndex = 13;
             // 
+            // LicenseBox
+            // 
+            this.LicenseBox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.LicenseBox.Image = ((System.Drawing.Image)(resources.GetObject("LicenseBox.Image")));
+            this.LicenseBox.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.LicenseBox.Name = "LicenseBox";
+            this.LicenseBox.Size = new System.Drawing.Size(50, 22);
+            this.LicenseBox.Text = "License";
+            this.LicenseBox.Click += new System.EventHandler(this.LicenseBox_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +254,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Output;
+        private System.Windows.Forms.ToolStripButton LicenseBox;
     }
 }
 
