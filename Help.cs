@@ -22,5 +22,10 @@ namespace MP4_Length_Modifier
         {
             Process.Start("https://github.com/retr0mod8/MP4-Length-Modifier");
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ&get-trolled");
+        }
     }
 }

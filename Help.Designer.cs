@@ -73,6 +73,7 @@ namespace MP4_Length_Modifier
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Version 2.0.0";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Help
             // 

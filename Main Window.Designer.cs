@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.Output = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Hour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seconds)).BeginInit();
@@ -184,12 +185,21 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Minutes";
             // 
+            // Output
+            // 
+            this.Output.Location = new System.Drawing.Point(12, 139);
+            this.Output.Name = "Output";
+            this.Output.ReadOnly = true;
+            this.Output.Size = new System.Drawing.Size(391, 20);
+            this.Output.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(418, 145);
+            this.ClientSize = new System.Drawing.Size(418, 169);
+            this.Controls.Add(this.Output);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -231,6 +241,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox Output;
     }
 }
 

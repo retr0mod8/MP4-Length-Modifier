@@ -18,7 +18,7 @@ namespace MP4_Length_Modifier
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DialogResult dialogResult = MessageBox.Show("Warning!\nThis Program Makes Changes to Files!\nBy pressing yes, you take full responsability for changes made to files", "Warning!", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Warning!\nThis Program Makes Changes to Files!\nBy pressing yes, you take full responsibility for changes made to files!", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
                 Application.Run(new Form1());
@@ -42,6 +42,8 @@ namespace MP4_Length_Modifier
         public static UInt32 b2 = 0;
         public static UInt32 b3 = 0;
         public static UInt32 b4 = 0;
+        public static UInt16 Status;
+        //0 = Idle, 1 = Cancelled, 2 = Operation Completed
     }
 
     static public class PublicFunctions
@@ -117,21 +119,37 @@ namespace MP4_Length_Modifier
 
             if (a)
             {
-                Console.WriteLine("Beginning backup of:", PublicVariables.FileLocation);
+                Console.WriteLine("Beginning backup of: "+ PublicVariables.FileLocation);
                 try
                 {
                     File.Copy(PublicVariables.FileLocation, PublicVariables.FileDirectory + PublicVariables.FileName.Substring(0, PublicVariables.FileName.Length - 4) + "_BACKUP_" + DateTime.Now.ToString("dd_MM_yyy") + ".mp4", false);
                 }
+                catch (IOException ioex)
+                {
+                    DialogResult dialogResult = MessageBox.Show("BACKUP FAILED!\n" + ioex.Message + "\nDo you want to overwrite the existing file?", "Error!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        File.Copy(PublicVariables.FileLocation, PublicVariables.FileDirectory + PublicVariables.FileName.Substring(0, PublicVariables.FileName.Length - 4) + "_BACKUP_" + DateTime.Now.ToString("dd_MM_yyy") + ".mp4", true);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                    }
+                    else if (dialogResult == DialogResult.Cancel)
+                    {
+                        PublicVariables.Status = 1;
+                        return;
+                    }
+                }
                 catch (Exception iox)
                 {
-                    DialogResult dialogResult = MessageBox.Show("BACKUP FAILED!\n" + iox.Message + "\nDo you want to continue without a backup?", "Error!", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("BACKUP FAILED!\n" + iox.Message + "\nDo you want to continue without a backup?", "Error!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                     if (dialogResult == DialogResult.Yes)
                     {
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        MessageBox.Show("The Backup has failed and you've chosen to not continue. The program will now exit.");
-                        Application.Exit();
+                        PublicVariables.Status = 1;
+                        return;
                     }
                 }
             }
@@ -183,14 +201,11 @@ namespace MP4_Length_Modifier
                 {
                     PublicVariables.b1 = 255;
                 }
-                Console.WriteLine(PublicVariables.b1);
-                Console.WriteLine(PublicVariables.b2);
-                Console.WriteLine(PublicVariables.b3);
-                Console.WriteLine(PublicVariables.b4);
                 stream.WriteByte(Convert.ToByte(PublicVariables.b1));
                 stream.WriteByte(Convert.ToByte(PublicVariables.b2));
                 stream.WriteByte(Convert.ToByte(PublicVariables.b3));
                 stream.WriteByte(Convert.ToByte(PublicVariables.b4));
+                PublicVariables.Status = 2;
             }
         }
     }

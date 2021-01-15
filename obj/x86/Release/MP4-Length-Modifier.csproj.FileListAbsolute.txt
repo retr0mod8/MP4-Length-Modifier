@@ -9,3 +9,14 @@ C:\Users\Main\Desktop\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.pd
 C:\Users\Main\Desktop\MP4-Length-Modifier\obj\x86\Release\MP4 Length Modifier.exe
 C:\Users\Main\Desktop\MP4-Length-Modifier\obj\x86\Release\MP4 Length Modifier.pdb
 C:\Users\Main\Desktop\MP4-Length-Modifier\obj\x86\Release\MP4-Length-Modifier.csprojAssemblyReference.cache
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4-Length-Modifier.csprojAssemblyReference.cache
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4_Length_Modifier.Help.resources
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4_Length_Modifier.Form1.resources
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4_Length_Modifier.Properties.Resources.resources
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4-Length-Modifier.csproj.GenerateResource.cache
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4-Length-Modifier.csproj.CoreCompileInputs.cache
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4 Length Modifier.exe
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\obj\x86\Release\MP4 Length Modifier.pdb
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.exe.config
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.exe
+C:\Users\Main\Documents\GitHub\MP4-Length-Modifier\bin\x86\Release\MP4 Length Modifier.pdb

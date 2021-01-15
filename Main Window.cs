@@ -26,6 +26,8 @@ namespace MP4_Length_Modifier
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
+                PublicVariables.Status = 0;
+                Output.Text = "Status: Idle";
                 PublicVariables.FileLocation = choofdlog.FileName;
                 PublicVariables.FileDirectory = choofdlog.FileName.Substring(0,choofdlog.FileName.Length - choofdlog.SafeFileName.Length);
                 PublicVariables.FileName = choofdlog.SafeFileName;
@@ -68,6 +70,7 @@ namespace MP4_Length_Modifier
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            Output.Text = "Status: Performing Task";
             Console.WriteLine(PublicVariables.FileLocation);
             StartButton.Enabled = false;
             Hour.Enabled = false;
@@ -83,6 +86,12 @@ namespace MP4_Length_Modifier
             Seconds.Enabled = true;
             BrowseButton.Enabled = true;
             StartButton.Enabled = true;
+            if (PublicVariables.Status == 1){
+                Output.Text = "Status: Cancelled by user";
+            }
+            else if (PublicVariables.Status == 2){
+                Output.Text = "Status: Completed";
+            }
         }
     }
 }
