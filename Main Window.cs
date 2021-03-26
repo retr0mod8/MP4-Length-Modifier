@@ -93,11 +93,5 @@ namespace MP4_Length_Modifier
                 Output.Text = "Status: Completed";
             }
         }
-
-        private void LicenseBox_Click(object sender, EventArgs e)
-        {
-            var s = new LicenseForm();
-            s.Show();
-        }
     }
 }
