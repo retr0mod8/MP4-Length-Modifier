@@ -75,7 +75,7 @@ namespace MP4_Length_Modifier
             inputSeconds.Enabled = false;
             buttonBrowse.Enabled = false;
             buttonStart.Enabled = false;
-            if (PublicFunctions.MakeFileOutput() == PublicFunctions.WriteInputSeconds(Convert.ToUInt32(inputHours.Value), Convert.ToUInt32(inputMinutes.Value), Convert.ToUInt32(inputSeconds.Value)))
+            if (PublicFunctions.MakeFileOutput() == true & PublicFunctions.WriteInputSeconds(Convert.ToUInt32(inputHours.Value), Convert.ToUInt32(inputMinutes.Value), Convert.ToUInt32(inputSeconds.Value)) == true)
             {
                 progressBar.Value = 100;
                 outputConsole.Text = "Status: Processing complete! The output is in the same directory as the input video.";
