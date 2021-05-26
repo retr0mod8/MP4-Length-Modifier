@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MP4-Length-Modifier")]
+[assembly: AssemblyTitle("MP4 Length Modifier")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MP4-Length-Modifier")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyProduct("MP4 Length Modifier")]
+[assembly: AssemblyCopyright("Copyright © retr0mod8  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0b004f95-7b45-4af3-9fa8-544b561bef7a")]
+[assembly: Guid("b4fed453-611d-4d5c-ac06-fafca637931f")]
 
 // Version information for an assembly consists of the following four values:
 //
