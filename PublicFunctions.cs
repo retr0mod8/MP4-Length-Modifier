@@ -180,31 +180,31 @@ namespace MP4_Length_Modifier
             string InputSecondsHex = "";
             try
             {
-                InputSeconds += (Hours * 3600) + (Minutes * 60) + Seconds;
-                InputSecondsHex = InputSeconds.ToString("X");
+                InputSeconds += (Hours * 3600) + (Minutes * 60) + Seconds; //Adds the input hours, minutes, and seconds to the InputSeconds variable. it also converts hours and minutes to seconds
+                InputSecondsHex = InputSeconds.ToString("X"); //Converts InputSeconds to the hex version
                 Console.WriteLine("Fixing hex values to proper formatting");
-                InputSecondsHex = "00000000".Substring(0, 8 - InputSecondsHex.Length) + InputSecondsHex;
+                InputSecondsHex = "00000000".Substring(0, 8 - InputSecondsHex.Length) + InputSecondsHex; //This is done so hex values which do not fill up the 8 spaces are fixed to do so. (E2 would convert to 000000E2)
                 Console.WriteLine(InputSecondsHex);
                 //The code beyond this point actually writes the data
 
                 using (var stream = new System.IO.FileStream(PublicVariables.OutputFileFullPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
                 {
                     Console.WriteLine("Now writing data!");
-                    stream.Position = PublicVariables.IncrementPosition;
+                    stream.Position = PublicVariables.IncrementPosition; //Gets the position of the video increment and video limit from earlier.
                     stream.WriteByte(0); //This writes the increment
                     stream.WriteByte(0);
                     stream.WriteByte(0);
                     stream.WriteByte(1);
-                    Console.WriteLine("Writing inclimit 1");
-                    stream.WriteByte(Convert.ToByte(InputSecondsHex.Substring(0, 2), 16));
+                    Console.WriteLine("Writing limit byte 1"); //Code beyond this point writes the limit
+                    stream.WriteByte(Convert.ToByte(InputSecondsHex.Substring(0, 2), 16)); //Converts 2 hex values to bytes.
                     Console.WriteLine(InputSecondsHex.Substring(0, 2));
-                    Console.WriteLine("Writing inclimit 2");
+                    Console.WriteLine("Writing limit byte 2");
                     stream.WriteByte(Convert.ToByte(InputSecondsHex.Substring(2, 2), 16));
                     Console.WriteLine(InputSecondsHex.Substring(2, 2));
-                    Console.WriteLine("Writing inclimit 3");
+                    Console.WriteLine("Writing limit byte 3");
                     stream.WriteByte(Convert.ToByte(InputSecondsHex.Substring(4, 2), 16));
                     Console.WriteLine(InputSecondsHex.Substring(4, 2));
-                    Console.WriteLine("Writing inclimit 4");
+                    Console.WriteLine("Writing limit byte 4");
                     stream.WriteByte(Convert.ToByte(InputSecondsHex.Substring(6, 2), 16));
                     Console.WriteLine(InputSecondsHex.Substring(6, 2));
                     stream.Close();
@@ -220,7 +220,7 @@ namespace MP4_Length_Modifier
 
         public static bool MakeFileOutput() //This makes the output copy of the video file. 
         {
-            try
+            try //In future, i might inplement a "Are you sure message" if the file already exists, or a random number on the copy file to ensure it doesnt right over any files.
             {
                 PublicVariables.OutputFileFullPath = (PublicVariables.FileFullPath.Substring(0, PublicVariables.FileFullPath.Length - 4) + "_OUTPUT_" + DateTime.Now.ToString("dd_MM_yyy") + ".mp4");
                 Console.WriteLine(PublicVariables.OutputFileFullPath);
