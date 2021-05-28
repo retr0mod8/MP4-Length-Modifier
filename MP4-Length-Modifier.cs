@@ -42,6 +42,7 @@ namespace MP4_Length_Modifier
                 outputFileName.Text = PublicVariables.FileName;
                 if (PublicFunctions.VerifyInputFile())
                 {
+                    PublicFunctions.CleanupVariables();
                     PublicFunctions.ReadInputFileIncrement();
                     UInt32 Seconds = PublicVariables.InputVideoLength;
                     inputHours.Value = Seconds / 3600;
@@ -76,11 +77,10 @@ namespace MP4_Length_Modifier
             buttonBrowse.Enabled = false;
             buttonStart.Enabled = false;
             // in the future, i might make 'MakeFileOutput' a part of 'WriteInputSeconds' to ensure an output file is made before trying to write to it.
-            if (PublicFunctions.MakeFileOutput() == true & PublicFunctions.WriteInputSeconds(Convert.ToUInt32(inputHours.Value), Convert.ToUInt32(inputMinutes.Value), Convert.ToUInt32(inputSeconds.Value)) == true) //Executes both functions
+            if (PublicFunctions.WriteInputSeconds(Convert.ToUInt32(inputHours.Value), Convert.ToUInt32(inputMinutes.Value), Convert.ToUInt32(inputSeconds.Value))) //Executes both functions
             {
                 progressBar.Value = 100;
                 outputConsole.Text = "Status: Processing complete! The output is in the same directory as the input video.";
-                PublicFunctions.CleanupVariables();
                 buttonStart.Enabled = true;
                 inputHours.Enabled = true;
                 inputMinutes.Enabled = true;

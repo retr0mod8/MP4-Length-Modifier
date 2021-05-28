@@ -11,9 +11,9 @@ namespace MP4_Length_Modifier
     {
         public static void CleanupVariables() //Tares the variables so that all variables are reset to their base values. better safe than sorry!
         {
+            Console.WriteLine("CleanupVariables got called!");
             PublicVariables.status = 0;
             PublicVariables.InputVideoLength = 0;
-            PublicVariables.IncrementPosition = 0;
             PublicVariables.OutputFileFullPath = "";
         }
 
@@ -68,6 +68,7 @@ namespace MP4_Length_Modifier
                                                                 if (stream.ReadByte() == 100) // D = 100
                                                                 {
                                                                     PublicVariables.IncrementPosition = (Convert.ToUInt32(stream.Position) + 12);
+                                                                        Console.WriteLine("Increment at " + Convert.ToString(stream.Position));
                                                                     stream.Close();
                                                                     loop = false;
                                                                     return true;
@@ -147,7 +148,7 @@ namespace MP4_Length_Modifier
                 using (var stream = new System.IO.FileStream(PublicVariables.FileFullPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
                 {
                     stream.Position = PublicVariables.IncrementPosition;
-                    Console.WriteLine(PublicVariables.IncrementPosition);
+                    Console.WriteLine("Increment " + Convert.ToString(PublicVariables.IncrementPosition));
                     string IncrementHex = "";
                     string LimitHex = "";
                     for (int i =0; i < 4; i++)
@@ -173,6 +174,10 @@ namespace MP4_Length_Modifier
 
         public static bool WriteInputSeconds(UInt32 Hours, UInt32 Minutes, UInt32 Seconds) //Writes input seconds to video file / returns false if it encounters error.
         {
+            if (!PublicFunctions.MakeFileOutput())
+            {
+                return false; //Returns if the output file copy fails
+            }
             Console.WriteLine(Hours);
             Console.WriteLine(Minutes);
             Console.WriteLine(Seconds);
@@ -229,9 +234,8 @@ namespace MP4_Length_Modifier
             }
             catch (Exception)
             {
-
+                return false;
             }
-            return false;
         }
     }
 }

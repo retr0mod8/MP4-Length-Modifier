@@ -13,7 +13,7 @@ namespace MP4_Length_Modifier
         public static string FileFullPath = ""; //Full path of the selected file (including extension)
         public static string FileName = ""; //Full name (and extension) of selected video file
         public static string FileParentDirectory = ""; //Path to the directory containing the selected video file
-        public static uint IncrementPosition = 0;
+        public static UInt32 IncrementPosition = 0;
         public static uint InputVideoLength = 0;
         public static string OutputFileFullPath = "";
 
